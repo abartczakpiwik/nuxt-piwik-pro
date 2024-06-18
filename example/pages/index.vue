@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <UContainer>
+  <UContainer class="m-8">
     <Navigation />
   </UContainer>
 </template>

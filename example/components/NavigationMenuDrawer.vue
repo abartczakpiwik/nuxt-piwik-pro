@@ -1,11 +1,16 @@
 <script setup lang="ts">
 const isOpen = ref(false);
+const route = useRoute();
+const isNotHomePage = ref(route.path !== "/");
+watch(
+  () => route.path,
+  (value) => (isNotHomePage.value = value !== "/")
+);
 </script>
 
 <template>
-  <div>
-    <UButton class="m-4" label="Pages" @click="isOpen = true" />
-
+  <div v-if="isNotHomePage">
+    <UButton class="m-4" icon="i-heroicons-bars-3" @click="isOpen = true" />
     <USlideover v-model="isOpen">
       <div class="p-4 flex-1">
         <UButton

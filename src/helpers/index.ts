@@ -10,8 +10,11 @@ export const usePiwikPro = async <T = unknown>(
   if (import.meta.client) {
     const { $piwikPRO } = nuxtApp;
     if ($piwikPRO) {
-      await callback($piwikPRO);
+      return await callback($piwikPRO);
     }
+    console.error("Piwik PRO is not injected to Nuxt App. Pass '@piwikpro/nuxt-piwik-pro' package as a Nuxt module in 'nuxt.config' file.");
+  } else {
+    console.warn("Piwik PRO is client only library and cannot be use in server side.");
   }
   return undefined;
 };
