@@ -12,8 +12,6 @@ const showToast = (message: string) => {
 
 const linkTrackingTimer = ref<string | number>("");
 
-const nuxtAppContext = useNuxtApp();
-
 const callAsyncMethods = async () =>
   usePiwikPro(async ({ DownloadAndOutlink }) => {
     DownloadAndOutlink.trackLink("http://localhost:3000", "link");
@@ -54,80 +52,88 @@ onMounted(() => {
       <button
         class="btn mr-5 mt-5"
         @click="
-          () => {
-            nuxtAppContext.$piwikPRO.DownloadAndOutlink.trackLink('http://localhost:5173', 'link');
-            showToast('DownloadAndOutlink.trackLink(\'http://localhost:5173\', \'link\')');
-          }
+          () =>
+            usePiwikPro(({ DownloadAndOutlink }) => {
+              DownloadAndOutlink.trackLink('http://localhost:3000', 'link');
+              showToast('DownloadAndOutlink.trackLink(\'http://localhost:3000\', \'link\')');
+            })
         ">
         DownloadAndOutlink.trackLink
       </button>
       <button
         class="btn mr-5 mt-5"
         @click="
-          () => {
-            nuxtAppContext.$piwikPRO.DownloadAndOutlink.enableLinkTracking(true);
-            showToast('DownloadAndOutlink.enableLinkTracking(true)');
-          }
+          () =>
+            usePiwikPro(({ DownloadAndOutlink }) => {
+              DownloadAndOutlink.enableLinkTracking(true);
+              showToast('DownloadAndOutlink.enableLinkTracking(true)');
+            })
         ">
         DownloadAndOutlink.enableLinkTracking
       </button>
       <button
         class="btn mr-5 mt-5"
         @click="
-          () => {
-            nuxtAppContext.$piwikPRO.DownloadAndOutlink.setLinkClasses(['this-is-an-outlink']);
-            showToast('DownloadAndOutlink.setLinkClasses([\'this-is-an-outlink\'])');
-          }
+          () =>
+            usePiwikPro(({ DownloadAndOutlink }) => {
+              DownloadAndOutlink.setLinkClasses(['this-is-an-outlink']);
+              showToast('DownloadAndOutlink.setLinkClasses([\'this-is-an-outlink\'])');
+            })
         ">
         DownloadAndOutlink.setLinkClasses
       </button>
       <button
         class="btn mr-5 mt-5"
         @click="
-          () => {
-            nuxtAppContext.$piwikPRO.DownloadAndOutlink.setDownloadClasses(['this-is-a-download']);
-            showToast('DownloadAndOutlink.setDownloadClasses([\'this-is-a-download\'])');
-          }
+          () =>
+            usePiwikPro(({ DownloadAndOutlink }) => {
+              DownloadAndOutlink.setDownloadClasses(['this-is-a-download']);
+              showToast('DownloadAndOutlink.setDownloadClasses([\'this-is-a-download\'])');
+            })
         ">
         DownloadAndOutlink.setDownloadClasses
       </button>
       <button
         class="btn mr-5 mt-5"
         @click="
-          () => {
-            nuxtAppContext.$piwikPRO.DownloadAndOutlink.addDownloadExtensions(['rar']);
-            showToast('DownloadAndOutlink.addDownloadExtensions - add RAR tracking');
-          }
+          () =>
+            usePiwikPro(({ DownloadAndOutlink }) => {
+              DownloadAndOutlink.addDownloadExtensions(['rar']);
+              showToast('DownloadAndOutlink.addDownloadExtensions - add RAR tracking');
+            })
         ">
         DownloadAndOutlink.addDownloadExtensions - add RAR tracking
       </button>
       <button
         class="btn mr-5 mt-5"
         @click="
-          () => {
-            nuxtAppContext.$piwikPRO.DownloadAndOutlink.removeDownloadExtensions(['rar']);
-            showToast('DownloadAndOutlink.removeDownloadExtensions - remove RAR tracking');
-          }
+          () =>
+            usePiwikPro(({ DownloadAndOutlink }) => {
+              DownloadAndOutlink.removeDownloadExtensions(['rar']);
+              showToast('DownloadAndOutlink.removeDownloadExtensions - remove RAR tracking');
+            })
         ">
         DownloadAndOutlink.removeDownloadExtensions - remove RAR tracking
       </button>
       <button
         class="btn mr-5 mt-5"
         @click="
-          () => {
-            nuxtAppContext.$piwikPRO.DownloadAndOutlink.setIgnoreClasses(['do-not-track']);
-            showToast('DownloadAndOutlink.setIgnoreClasses([\'do-not-track\'])');
-          }
+          () =>
+            usePiwikPro(({ DownloadAndOutlink }) => {
+              DownloadAndOutlink.setIgnoreClasses(['do-not-track']);
+              showToast('DownloadAndOutlink.setIgnoreClasses([\'do-not-track\'])');
+            })
         ">
         DownloadAndOutlink.setIgnoreClasses
       </button>
       <button
         class="btn mr-5 mt-5"
         @click="
-          () => {
-            nuxtAppContext.$piwikPRO.DownloadAndOutlink.setLinkTrackingTimer(20);
-            showToast('DownloadAndOutlink.setLinkTrackingTimer(20)');
-          }
+          () =>
+            usePiwikPro(({ DownloadAndOutlink }) => {
+              DownloadAndOutlink.setLinkTrackingTimer(20);
+              showToast('DownloadAndOutlink.setLinkTrackingTimer(20)');
+            })
         ">
         DownloadAndOutlink.setLinkTrackingTimer
       </button>

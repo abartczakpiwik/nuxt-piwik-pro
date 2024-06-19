@@ -10,15 +10,14 @@ const showToast = (message: string) => {
   isToastVisible.value = true;
 };
 
-const nuxtAppContext = useNuxtApp();
+const { $piwikPRO } = useNuxtApp();
 
 const callAsyncMethods = async () => {
-  usePiwikPro(async ({ CustomDimensions }) => {
-    CustomDimensions.setCustomDimensionValue(12, "value");
-    const cDimValue = await CustomDimensions.getCustomDimensionValue(12);
-    customDimValue.value = cDimValue ?? "";
-    CustomDimensions.deleteCustomDimension("12");
-  });
+  const { CustomDimensions } = $piwikPRO;
+  CustomDimensions.setCustomDimensionValue(12, "value");
+  const cDimValue = await CustomDimensions.getCustomDimensionValue(12);
+  customDimValue.value = cDimValue ?? "";
+  CustomDimensions.deleteCustomDimension("12");
 };
 
 onMounted(() => {
@@ -46,7 +45,7 @@ onMounted(() => {
       class="btn"
       @click="
         () => {
-          nuxtAppContext.$piwikPRO.CustomDimensions.setCustomDimensionValue(12, 'value');
+          $piwikPRO.CustomDimensions.setCustomDimensionValue(12, 'value');
           showToast('CustomDimensions.setCustomDimensionValue(12, \'value\')');
         }
       ">
@@ -56,8 +55,8 @@ onMounted(() => {
       class="btn"
       @click="
         async () => {
-          nuxtAppContext.$piwikPRO.CustomDimensions.getCustomDimensionValue(12);
-          customDimValue = (await nuxtAppContext.$piwikPRO.CustomDimensions.getCustomDimensionValue(12)) ?? '';
+          $piwikPRO.CustomDimensions.getCustomDimensionValue(12);
+          customDimValue = (await $piwikPRO.CustomDimensions.getCustomDimensionValue(12)) ?? '';
           showToast('CustomDimensions.getCustomDimensionValue(12)');
         }
       ">
@@ -67,7 +66,7 @@ onMounted(() => {
       class="btn"
       @click="
         () => {
-          nuxtAppContext.$piwikPRO.CustomDimensions.deleteCustomDimension('12');
+          $piwikPRO.CustomDimensions.deleteCustomDimension('12');
           showToast('CustomDimensions.deleteCustomDimension(\'12\')');
         }
       ">
