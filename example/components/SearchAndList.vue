@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/helpers";
 import { ref } from "vue";
 
 type Product = {
@@ -23,7 +22,7 @@ const debounce = (callback: (...args: any[]) => void, delay: number) => {
 const nuxtApp = useNuxtApp();
 
 const getIProductsBySearchString = (searchString: string) =>
-  usePiwikPro(nuxtApp, async ({ SiteSearch }) => {
+  usePiwikPro(async ({ SiteSearch }) => {
     try {
       SiteSearch.trackSiteSearch(searchString);
       const response = await fetch(`https://dummyjson.com/products/search?q=${searchString}`);

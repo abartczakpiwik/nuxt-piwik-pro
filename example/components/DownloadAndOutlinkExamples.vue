@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/helpers";
 import Toast from "./Toast.vue";
 import { onMounted, ref } from "vue";
 
@@ -16,7 +15,7 @@ const linkTrackingTimer = ref<string | number>("");
 const nuxtAppContext = useNuxtApp();
 
 const callAsyncMethods = async () =>
-  usePiwikPro(nuxtAppContext, async ({ DownloadAndOutlink }) => {
+  usePiwikPro(async ({ DownloadAndOutlink }) => {
     DownloadAndOutlink.trackLink("http://localhost:3000", "link");
     DownloadAndOutlink.enableLinkTracking(true);
     DownloadAndOutlink.setLinkClasses(["this-is-an-outlink"]);

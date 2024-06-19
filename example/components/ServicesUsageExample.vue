@@ -3,12 +3,12 @@
   <div>
     <pre>    
       <code class="lang-ts">
-      import { usePiwikPro } from '@piwikpro/nuxt-piwik-pro/helpers';
+      import { handlePiwikPRO } from '@piwikpro/nuxt-piwik-pro/utils';
       
       ...
 
       const nuxtApp = useNuxtApp();
-      usePiwikPro(nuxtApp,($piwikPRO)=>{
+      handlePiwikPRO(nuxtApp,($piwikPRO)=>{
          // Safety use any of Piwik PRO service here. 
       });
     </code>

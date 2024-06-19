@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
 
-import { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/helpers";
-
 const customDimValue = ref<string>("");
 const toastMessage = ref("");
 const isToastVisible = ref(false);
@@ -15,7 +13,7 @@ const showToast = (message: string) => {
 const nuxtAppContext = useNuxtApp();
 
 const callAsyncMethods = async () => {
-  usePiwikPro(nuxtAppContext, async ({ CustomDimensions }) => {
+  usePiwikPro(async ({ CustomDimensions }) => {
     CustomDimensions.setCustomDimensionValue(12, "value");
     const cDimValue = await CustomDimensions.getCustomDimensionValue(12);
     customDimValue.value = cDimValue ?? "";
