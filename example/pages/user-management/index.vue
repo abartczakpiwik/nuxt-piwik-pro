@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/helpers";
 import { onMounted, ref } from "vue";
 
 const userId = ref("");
 const visitorId = ref("");
 const visitorInfo = ref({});
 
-const nuxtApp = useNuxtApp();
-
 const callAsyncMethods = () =>
-  usePiwikPro(nuxtApp, async ({ UserManagement }) => {
+  usePiwikPro(async ({ UserManagement }) => {
     UserManagement.setUserId("UserId");
     const uId = await UserManagement.getUserId();
     userId.value = uId;

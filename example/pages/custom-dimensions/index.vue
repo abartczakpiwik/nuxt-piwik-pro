@@ -36,6 +36,8 @@ const pageData = {
         <code class="lang-js">{{ method.usage }}</code>
       </li>
     </ul>
-    <CustomDimensionResults />
+    <ClientOnly fallback-tag="span" fallback="Loading...">
+      <CustomDimensionResults />
+    </ClientOnly>
   </UContainer>
 </template>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/helpers";
 
 const pageData = {
   title: "ContentTracking",
@@ -20,10 +19,8 @@ const pageData = {
   ],
 };
 
-const nuxtAppContext = useNuxtApp();
-
 onMounted(() => {
-  usePiwikPro(nuxtAppContext, ({ ContentTracking }) => {
+  usePiwikPro(({ ContentTracking }) => {
     ContentTracking.trackContentImpression("contentName", "contentPiece", "contentTarget");
 
     ContentTracking.trackContentInteraction("contentInteraction", "contentName", "contentPiece", "contentTarget");
