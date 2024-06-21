@@ -2,8 +2,8 @@
 import { computed, watch } from "vue";
 
 const props = defineProps({
-  message: String,
-  timeout: Number,
+  message: { type: String, default: '' },
+  timeout: { type: Number, default: 3000 },
   modelValue: Boolean,
 });
 

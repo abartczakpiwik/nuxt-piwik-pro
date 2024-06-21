@@ -15,7 +15,7 @@
     "test": "jest --passWithNoTests",
     "build": "tsc -b",
     "build:docs": "typedoc && concat-md --decrease-title-levels --start-title-level-at=2 docs_raw > README.md && node scripts/postProcessDocs.js",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
     "lint:fix": "eslint . --fix"
   },
   "engines": {
