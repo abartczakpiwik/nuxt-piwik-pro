@@ -8,6 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "test": "jest --passWithNoTests",
     "build-piwik-nuxt": "cd ../ && npm run build && cd example/"
   },
   "dependencies": {
