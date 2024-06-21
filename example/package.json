@@ -3,10 +3,10 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "build": "npm run build-piwik-nuxt && nuxt build",
-    "dev": "npm run build-piwik-nuxt && nuxt dev",
-    "generate": "npm run build-piwik-nuxt && nuxt generate",
-    "preview": "npm run build-piwik-nuxt && nuxt preview",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "build-piwik-nuxt": "cd ../ && npm run build && cd example/"
   },
