@@ -67,16 +67,15 @@ if (module.meta.client) {
 }
 ```
 
-#### Usage with `handlePiwikPRO()` utility
+#### Usage with `usePiwikPro()`
 
-To use Piwik PRO services safety, you can import `handlePiwikPRO()` util from `'@piwikpro/nuxt-piwik-pro/utils'`.
+To use Piwik PRO services safety, you can import `usePiwikPro()` from `'@piwikpro/nuxt-piwik-pro/composables'`.
 
 ```ts
 // In any component or other part of application code
-import { handlePiwikPRO } from "@piwikpro/nuxt-piwik-pro/utils";
-const nuxtApp = useNuxtApp();
+import { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/composables";
 // callback can be sync or async function
-const userId = await handlePiwikPRO(nuxtApp, ({ PageViews, GoalConversions, UserManagement }) => {
+const userId = await handlePiwikPRO(({ PageViews, GoalConversions, UserManagement }) => {
   PageViews.trackPageView();
   GoalConversions.trackGoal(1, 100);
   return UserManagement.getUserId();
@@ -85,14 +84,13 @@ const userId = await handlePiwikPRO(nuxtApp, ({ PageViews, GoalConversions, User
 
 > [!TIP]
 >
-> ###### Create `usePiwikPro()` composable
+> ###### export `usePiwikPro()` as a Nuxt composable
 >
-> To make this utility globally available, create `.ts` file in `/composables` directory and export custom composable which wraps `handlePiwikPRO()`.
+> To make this composable globally available, create `.ts` file in `/composables` directory and export `usePiwikPro()` from `'@piwikpro/nuxt-piwik-pro/composables'`.
 >
 > ```ts
 > // ./composables/usePiwikPro.ts
-> import { handlePiwikPRO, type PiwikPROHandler } from "@piwikpro/nuxt-piwik-pro/utils";
-> export const usePiwikPro = <T = unknown>(handler: PiwikPROHandler<T>) => handlePiwikPRO(useNuxtApp(), handler);
+> export { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/composables";
 > ```
 >
 > ```ts

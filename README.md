@@ -71,16 +71,15 @@ if (module.meta.client) {
 }
 ```
 
-##### Usage with `handlePiwikPRO()` utility
+##### Usage with `usePiwikPro()`
 
-To use Piwik PRO services safety, you can import `handlePiwikPRO()` util from `'@piwikpro/nuxt-piwik-pro/utils'`.
+To use Piwik PRO services safety, you can import `usePiwikPro()` from `'@piwikpro/nuxt-piwik-pro/composables'`.
 
 ```ts
 // In any component or other part of application code
-import { handlePiwikPRO } from "@piwikpro/nuxt-piwik-pro/utils";
-const nuxtApp = useNuxtApp();
+import { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/composables";
 // callback can be sync or async function
-const userId = await handlePiwikPRO(nuxtApp, ({ PageViews, GoalConversions, UserManagement }) => {
+const userId = await handlePiwikPRO(({ PageViews, GoalConversions, UserManagement }) => {
   PageViews.trackPageView();
   GoalConversions.trackGoal(1, 100);
   return UserManagement.getUserId();
@@ -89,14 +88,13 @@ const userId = await handlePiwikPRO(nuxtApp, ({ PageViews, GoalConversions, User
 
 > [!TIP]
 >
-> ###### Create `usePiwikPro()` composable
+> ###### export `usePiwikPro()` as a Nuxt composable
 >
-> To make this utility globally available, create `.ts` file in `/composables` directory and export custom composable which wraps `handlePiwikPRO()`.
+> To make this composable globally available, create `.ts` file in `/composables` directory and export `usePiwikPro()` from `'@piwikpro/nuxt-piwik-pro/composables'`.
 >
 > ```ts
 > // ./composables/usePiwikPro.ts
-> import { handlePiwikPRO, type PiwikPROHandler } from "@piwikpro/nuxt-piwik-pro/utils";
-> export const usePiwikPro = <T = unknown>(handler: PiwikPROHandler<T>) => handlePiwikPRO(useNuxtApp(), handler);
+> export { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/composables";
 > ```
 >
 > ```ts
@@ -168,8 +166,13 @@ Please explore the `./example` directory to get to know how to use this package 
 #### Type Aliases
 
 - [Dimensions](#dimensions)
+- [HandlePiwikPROReturnedType](#handlepiwikproreturnedtype)
 - [InitOptions](#initoptions)
+- [NuxtAppWithPiwikPRO](#nuxtappwithpiwikpro)
 - [PaymentInformation](#paymentinformation)
+- [PiwikPROHandler](#piwikprohandler)
+- [PiwikPROServicesType](#piwikproservicestype)
+- [PluginArgs](#pluginargs)
 - [Product](#product)
 - [VisitorInfo](#visitorinfo)
 
@@ -188,6 +191,18 @@ Please explore the `./example` directory to get to know how to use this package 
 
 ___
 
+#### HandlePiwikPROReturnedType
+
+Ƭ **HandlePiwikPROReturnedType**\<`T`\>: `Promise`\<`T` \| `undefined`\>
+
+##### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `unknown` |
+
+___
+
 #### InitOptions
 
 Ƭ **InitOptions**: `Object`
@@ -198,6 +213,18 @@ ___
 | :------ | :------ | :------ |
 | `dataLayerName?` | `string` | Defaults to 'dataLayer' |
 | `nonce?` | `string` | - |
+
+___
+
+#### NuxtAppWithPiwikPRO
+
+Ƭ **NuxtAppWithPiwikPRO**: `Object`
+
+##### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `$piwikPRO?` | [`PiwikPROServicesType`](#piwikproservicestype) |
 
 ___
 
@@ -215,6 +242,44 @@ ___
 | `shipping?` | `number` \| `string` |
 | `subTotal?` | `number` \| `string` |
 | `tax?` | `number` \| `string` |
+
+___
+
+#### PiwikPROHandler
+
+Ƭ **PiwikPROHandler**\<`T`\>: (`piwikPRO`: [`PiwikPROServicesType`](#piwikproservicestype)) => `T` \| `Promise`\<`T`\>
+
+##### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `unknown` |
+
+##### Type declaration
+
+▸ (`piwikPRO`): `T` \| `Promise`\<`T`\>
+
+###### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `piwikPRO` | [`PiwikPROServicesType`](#piwikproservicestype) |
+
+###### Returns
+
+`T` \| `Promise`\<`T`\>
+
+___
+
+#### PiwikPROServicesType
+
+Ƭ **PiwikPROServicesType**: typeof `PiwikPROServices`
+
+___
+
+#### PluginArgs
+
+Ƭ **PluginArgs**: \{ `containerId`: `string` ; `containerUrl`: `string`  } & [`InitOptions`](#initoptions)
 
 ___
 
@@ -264,7 +329,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `this` | `void` |
-| `inlineOptions` | `ModuleOptions` |
+| `inlineOptions` | [`PluginArgs`](#pluginargs) |
 | `nuxt` | `Nuxt` |
 
 ##### Returns
