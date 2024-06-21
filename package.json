@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-piwik-pro",
+  "name": "@piwikpro/nuxt-piwik-pro",
   "private": false,
   "version": "1.0.0",
   "description": "Dedicated Piwik PRO library that helps with implementing Piwik PRO Tag Manager and the Piwik PRO tracking client in Nuxt.js applications.",
@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -b"
+    "build": "tsc -b",
+    "build:docs": "typedoc && concat-md --decrease-title-levels --start-title-level-at=2 docs_raw > README.md && node scripts/postProcessDocs.js"
   },
   "engines": {
     "node": ">=18.0.0"
