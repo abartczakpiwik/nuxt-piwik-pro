@@ -1,4 +1,4 @@
-import type { HandlePiwikPROReturnedType, NuxtAppWithPiwikPRO, PiwikPROHandler } from "../types";
+import { HandlePiwikPROReturnedType, NuxtAppWithPiwikPRO, PiwikPROHandler } from "../types";
 
 const handlePiwikPRO = async <T = unknown>(nuxtApp: NuxtAppWithPiwikPRO, handler: PiwikPROHandler<T>): HandlePiwikPROReturnedType<T> => {
   if (import.meta.client) {

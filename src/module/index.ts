@@ -1,8 +1,9 @@
 import { addPlugin, defineNuxtModule } from "nuxt/kit";
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
+import { PluginArgs } from "../types";
 
-export default defineNuxtModule({
+export default defineNuxtModule<PluginArgs>({
   meta: {
     name: "piwik-pro",
     configKey: "piwikPro",

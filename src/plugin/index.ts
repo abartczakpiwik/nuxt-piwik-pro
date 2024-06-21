@@ -1,23 +1,8 @@
 import { defineNuxtPlugin, useRuntimeConfig } from "nuxt/app";
 import PiwikPRO, * as PiwikPROServices from "@piwikpro/vue-piwik-pro";
-import { type InitOptions } from "@piwikpro/vue-piwik-pro";
+import { PluginArgs, PiwikPROServicesType } from "../types";
 
-declare global {
-  interface ImportMeta {
-    browser: boolean;
-    client: boolean;
-    dev: boolean;
-    server: boolean;
-    test: boolean;
-  }
-}
-
-export type PluginArgs = {
-  containerId: string;
-  containerUrl: string;
-} & InitOptions;
-
-export default defineNuxtPlugin<{ piwikPRO: typeof PiwikPROServices }>({
+export default defineNuxtPlugin<{ piwikPRO: PiwikPROServicesType }>({
   name: "piwik-pro",
   setup() {
     try {
