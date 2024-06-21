@@ -18,7 +18,7 @@ npm install @piwikpro/nuxt-piwik-pro
 
 #### Basic setup
 
-In your Nuxt Project, include `@piwikpro/nuxt-piwik-pro` as a nuxt module in `nuxt.config.ts` file. To set up the Piwik PRO Tag Manager container in the app, pass configuration object as a module inline-options. Configuration is a object with `containerUrl`, `containerId`, `nonce` (optional) and `dataNameLayer` (optional) properties.
+In your Nuxt Project, include `@piwikpro/nuxt-piwik-pro` as a nuxt module in `nuxt.config.ts` file. To set up the Piwik PRO Tag Manager container in the app, pass configuration object as a module inline-options. Configuration options can be found below.
 
 ```ts
 // nuxt.config.ts
@@ -58,7 +58,8 @@ If you want your nonce to be passed to the script, pass it as the third argument
 
 Piwik PRO container will be initialized under the hood by `@piwikpro/nuxt-piwik-pro` module itself. Module also inject client-only plugin to Nuxt application instance which allow you to use all Piwik PRO services globally as a part of Nuxt context returned from `useNuxtApp()` composable as a `$piwikPRO`.
 
-Remember that Piwik PRO is a client-only library. This means you won't have access to any of its services on the server side.
+> [!IMPORTANT]  
+> Remember that Piwik PRO is a client-only library. This means you won't have access to any of its services on the server side.
 
 ```ts
 // In any component or other part of application code
@@ -70,7 +71,7 @@ if (module.meta.client) {
 }
 ```
 
-##### Usage with `handlePiwikPRO()` util
+##### Usage with `handlePiwikPRO()` utility
 
 To use Piwik PRO services safety, you can import `handlePiwikPRO()` util from `'@piwikpro/nuxt-piwik-pro/utils'`.
 
@@ -86,24 +87,26 @@ const userId = await handlePiwikPRO(nuxtApp, ({ PageViews, GoalConversions, User
 });
 ```
 
-###### Create `usePiwikPro()` composable
-
-To make this util globally enable, create `.ts` file in `/composables` directory and export custom composable which wraps `handlePiwikPRO()`.
-
-```ts
-// ./composables/usePiwikPro.ts
-import { handlePiwikPRO, type PiwikPROHandler } from "@piwikpro/nuxt-piwik-pro/utils";
-export const usePiwikPro = <T = unknown>(handler: PiwikPROHandler<T>) => handlePiwikPRO(useNuxtApp(), handler);
-```
-
-```ts
-// In any component or other part of application code
-const userId = await usePiwikPro(({ PageViews, GoalConversions, UserManagement }) => {
-  PageViews.trackPageView();
-  GoalConversions.trackGoal(1, 100);
-  return UserManagement.getUserId();
-});
-```
+> [!TIP]
+>
+> ###### Create `usePiwikPro()` composable
+>
+> To make this utility globally available, create `.ts` file in `/composables` directory and export custom composable which wraps `handlePiwikPRO()`.
+>
+> ```ts
+> // ./composables/usePiwikPro.ts
+> import { handlePiwikPRO, type PiwikPROHandler } from "@piwikpro/nuxt-piwik-pro/utils";
+> export const usePiwikPro = <T = unknown>(handler: PiwikPROHandler<T>) => handlePiwikPRO(useNuxtApp(), handler);
+> ```
+>
+> ```ts
+> // In any component or other part of application code
+> const userId = await usePiwikPro(({ PageViews, GoalConversions, UserManagement }) => {
+>   PageViews.trackPageView();
+>   GoalConversions.trackGoal(1, 100);
+>   return UserManagement.getUserId();
+> });
+> ```
 
 ##### Usage with `<ClientOnly/>` Nuxt component
 
@@ -144,7 +147,6 @@ Please explore the `./example` directory to get to know how to use this package 
 <a name="modulesmd"></a>
 
 
-## nuxt-piwik-pro
 
 ### Table of contents
 
