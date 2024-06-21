@@ -1,3 +1,3 @@
-import { handlePiwikPRO, type PiwikPROHandler, type HandlePiwikPROReturnedType } from "@piwikpro/nuxt-piwik-pro/utils";
+import { usePiwikPro as _usePiwikPro } from "@piwikpro/nuxt-piwik-pro/composables";
 
-export const usePiwikPro = <T = unknown>(handler: PiwikPROHandler<T>): HandlePiwikPROReturnedType<T> => handlePiwikPRO(useNuxtApp(), handler);
+export const usePiwikPro = _usePiwikPro;
