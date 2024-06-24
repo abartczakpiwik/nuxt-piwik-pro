@@ -9,5 +9,7 @@ export type PluginArgs = {
 
 export type PiwikPROServicesType = typeof PiwikPROServices;
 export type NuxtAppWithPiwikPRO = NuxtApp & { $piwikPRO: PiwikPROServicesType };
-export type PiwikPROHandler<T = unknown> = (piwikPRO: PiwikPROServicesType) => T | Promise<T>;
+export type PiwikPROHandler<T = unknown> = (
+  piwikPRO: PiwikPROServicesType
+) => T | Promise<T>;
 export type HandlePiwikPROReturnedType<T = unknown> = Promise<T | undefined>;
