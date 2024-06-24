@@ -8,13 +8,10 @@ export default defineNuxtPlugin<{ piwikPRO: PiwikPROServicesType }>({
     try {
       if (import.meta.client) {
         const { public: publicConfig } = useRuntimeConfig();
-        const { containerId, containerUrl, nonce, dataLayerName } =
+        const { containerId, containerUrl, ...restOptions } =
           publicConfig as PluginArgs;
 
-        PiwikPRO.initialize(containerId ?? "", containerUrl ?? "", {
-          nonce,
-          dataLayerName,
-        });
+        PiwikPRO.initialize(containerId ?? "", containerUrl ?? "", restOptions);
       }
     } catch (err) {
       console.error(err);
