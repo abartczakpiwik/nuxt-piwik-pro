@@ -9,12 +9,10 @@ export default defineNuxtModule<PluginArgs>({
     configKey: "piwikPro",
   },
   setup(options, nuxt) {
-    if (options) {
-      if (!options.containerUrl || !options.containerId) {
-        throw Error(
-          "@piwikpro/nuxt-piwik-pro module cannot run without 'containerUrl' and 'containerId' because they are required. Pass them as a module inline-options."
-        );
-      }
+    if (!options.containerUrl || !options.containerId) {
+      throw Error(
+        "@piwikpro/nuxt-piwik-pro module cannot run without 'containerUrl' and 'containerId' because they are required. Pass them as a module inline-options."
+      );
     }
 
     nuxt.options.runtimeConfig.public = {
