@@ -1,11 +1,8 @@
-import daisyui from "daisyui";
-import tailwindTypography from "@tailwindcss/typography";
-
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: ["./components/**/*.{js,vue,ts}", "./layouts/**/*.vue", "./pages/**/*.vue", "./plugins/**/*.{js,ts}", "./app.vue", "./error.vue"],
   theme: {
     extend: {},
   },
-  plugins: [tailwindTypography, daisyui],
+  plugins: [require("daisyui"), require("@tailwindcss/typography")],
 };

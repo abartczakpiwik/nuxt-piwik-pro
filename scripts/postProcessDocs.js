@@ -14,7 +14,12 @@ const formattedOutput = file
   .filter((line) => !line.includes("### Functions"))
   // remove remove additional prefix
   .map((line) => line.replace("Namespace: ", ""))
-  .map((line) => line.replace("## Piwik PRO Library for Nuxt", "# Piwik PRO Library for Nuxt"))
+  .map((line) =>
+    line.replace(
+      "## Piwik PRO Library for Nuxt",
+      "# Piwik PRO Library for Nuxt"
+    )
+  )
   .join("\n");
 
 writeFileSync(README, formattedOutput);

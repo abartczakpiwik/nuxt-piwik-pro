@@ -4,16 +4,19 @@ import { onMounted } from "vue";
 const pageData = {
   title: "ContentTracking",
   heading: "Content Tracking Service",
-  description: "Content Tracking lets you track what content is visible on your site and how users interact with it.",
+  description:
+    "Content Tracking lets you track what content is visible on your site and how users interact with it.",
   methods: [
     {
       method: "trackContentImpression",
-      usage: "$piwikPRO.ContentTracking.trackContentImpression(contentName: string, contentPiece: string, contentTarget: string)",
+      usage:
+        "$piwikPRO.ContentTracking.trackContentImpression(contentName: string, contentPiece: string, contentTarget: string)",
       desc: "Tracks manual content impression event.",
     },
     {
       method: "trackContentInteraction",
-      usage: "$piwikPRO.ContentTracking.trackContentInteraction(contentInteraction: string, contentName: string, contentPiece: string, contentTarget: string)",
+      usage:
+        "$piwikPRO.ContentTracking.trackContentInteraction(contentInteraction: string, contentName: string, contentPiece: string, contentTarget: string)",
       desc: "Tracks manual content interaction event.",
     },
   ],
@@ -21,9 +24,18 @@ const pageData = {
 
 onMounted(() => {
   usePiwikPro(({ ContentTracking }) => {
-    ContentTracking.trackContentImpression("contentName", "contentPiece", "contentTarget");
+    ContentTracking.trackContentImpression(
+      "contentName",
+      "contentPiece",
+      "contentTarget"
+    );
 
-    ContentTracking.trackContentInteraction("contentInteraction", "contentName", "contentPiece", "contentTarget");
+    ContentTracking.trackContentInteraction(
+      "contentInteraction",
+      "contentName",
+      "contentPiece",
+      "contentTarget"
+    );
   });
 });
 </script>
@@ -44,10 +56,15 @@ onMounted(() => {
       </li>
     </ul>
     <h2>Sample usage</h2>
-    <p>To see tracking methods usage please turn developers tools in your browser and track results on the console.</p>
+    <p>
+      To see tracking methods usage please turn developers tools in your browser
+      and track results on the console.
+    </p>
     <p>
       You can use methods from that collection in page props for example
-      <code class="lang-js">onMounted</code> (methods are invoked when the page starts) or on the button click using <code class="lang-js">@click</code> prop.
+      <code class="lang-js">onMounted</code> (methods are invoked when the page
+      starts) or on the button click using
+      <code class="lang-js">@click</code> prop.
     </p>
   </UContainer>
 </template>

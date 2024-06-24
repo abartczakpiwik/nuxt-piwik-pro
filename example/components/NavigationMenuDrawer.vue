@@ -21,7 +21,8 @@ watch(
           class="flex sm:hidden absolute end-5 top-5 z-10"
           square
           padded
-          @click="isOpen = false" />
+          @click="isOpen = false"
+        />
         <Navigation />
       </div>
     </USlideover>

@@ -42,10 +42,14 @@ onMounted(() => {
       </p>
     </div>
     <h2>Sample usage</h2>
-    <p>To see tracking methods usage please turn developers tools in your browser and track results on the console.</p>
+    <p>
+      To see tracking methods usage please turn developers tools in your browser
+      and track results on the console.
+    </p>
     <p>
       You can use methods from that collection in page props for example
-      <code class="lang-ts">onMounted</code> (methods are invoked when the page starts) or as on example below on the button click using
+      <code class="lang-ts">onMounted</code> (methods are invoked when the page
+      starts) or as on example below on the button click using
       <code class="lang-ts">@click</code> event.
     </p>
     <div>
@@ -55,9 +59,12 @@ onMounted(() => {
           () =>
             usePiwikPro(({ DownloadAndOutlink }) => {
               DownloadAndOutlink.trackLink('http://localhost:3000', 'link');
-              showToast('DownloadAndOutlink.trackLink(\'http://localhost:3000\', \'link\')');
+              showToast(
+                'DownloadAndOutlink.trackLink(\'http://localhost:3000\', \'link\')'
+              );
             })
-        ">
+        "
+      >
         DownloadAndOutlink.trackLink
       </button>
       <button
@@ -68,7 +75,8 @@ onMounted(() => {
               DownloadAndOutlink.enableLinkTracking(true);
               showToast('DownloadAndOutlink.enableLinkTracking(true)');
             })
-        ">
+        "
+      >
         DownloadAndOutlink.enableLinkTracking
       </button>
       <button
@@ -77,9 +85,12 @@ onMounted(() => {
           () =>
             usePiwikPro(({ DownloadAndOutlink }) => {
               DownloadAndOutlink.setLinkClasses(['this-is-an-outlink']);
-              showToast('DownloadAndOutlink.setLinkClasses([\'this-is-an-outlink\'])');
+              showToast(
+                'DownloadAndOutlink.setLinkClasses([\'this-is-an-outlink\'])'
+              );
             })
-        ">
+        "
+      >
         DownloadAndOutlink.setLinkClasses
       </button>
       <button
@@ -88,9 +99,12 @@ onMounted(() => {
           () =>
             usePiwikPro(({ DownloadAndOutlink }) => {
               DownloadAndOutlink.setDownloadClasses(['this-is-a-download']);
-              showToast('DownloadAndOutlink.setDownloadClasses([\'this-is-a-download\'])');
+              showToast(
+                'DownloadAndOutlink.setDownloadClasses([\'this-is-a-download\'])'
+              );
             })
-        ">
+        "
+      >
         DownloadAndOutlink.setDownloadClasses
       </button>
       <button
@@ -99,9 +113,12 @@ onMounted(() => {
           () =>
             usePiwikPro(({ DownloadAndOutlink }) => {
               DownloadAndOutlink.addDownloadExtensions(['rar']);
-              showToast('DownloadAndOutlink.addDownloadExtensions - add RAR tracking');
+              showToast(
+                'DownloadAndOutlink.addDownloadExtensions - add RAR tracking'
+              );
             })
-        ">
+        "
+      >
         DownloadAndOutlink.addDownloadExtensions - add RAR tracking
       </button>
       <button
@@ -110,9 +127,12 @@ onMounted(() => {
           () =>
             usePiwikPro(({ DownloadAndOutlink }) => {
               DownloadAndOutlink.removeDownloadExtensions(['rar']);
-              showToast('DownloadAndOutlink.removeDownloadExtensions - remove RAR tracking');
+              showToast(
+                'DownloadAndOutlink.removeDownloadExtensions - remove RAR tracking'
+              );
             })
-        ">
+        "
+      >
         DownloadAndOutlink.removeDownloadExtensions - remove RAR tracking
       </button>
       <button
@@ -121,9 +141,12 @@ onMounted(() => {
           () =>
             usePiwikPro(({ DownloadAndOutlink }) => {
               DownloadAndOutlink.setIgnoreClasses(['do-not-track']);
-              showToast('DownloadAndOutlink.setIgnoreClasses([\'do-not-track\'])');
+              showToast(
+                'DownloadAndOutlink.setIgnoreClasses([\'do-not-track\'])'
+              );
             })
-        ">
+        "
+      >
         DownloadAndOutlink.setIgnoreClasses
       </button>
       <button
@@ -134,7 +157,8 @@ onMounted(() => {
               DownloadAndOutlink.setLinkTrackingTimer(20);
               showToast('DownloadAndOutlink.setLinkTrackingTimer(20)');
             })
-        ">
+        "
+      >
         DownloadAndOutlink.setLinkTrackingTimer
       </button>
       <button
@@ -144,7 +168,8 @@ onMounted(() => {
             callAsyncMethods();
             showToast('callAsyncMethods');
           }
-        ">
+        "
+      >
         CustomDimensions.getCustomDimensionValue
       </button>
     </div>
@@ -154,10 +179,12 @@ onMounted(() => {
       <br />
       <a href="/files/example.pdf">Download PDF</a> - outlink
       <br />
-      <a href="/files/example.rar">Download RAR</a> - download tracked disabled by default, you can turn on/off by button
+      <a href="/files/example.rar">Download RAR</a> - download tracked disabled
+      by default, you can turn on/off by button
       <br />
-      <a class="do-not-track" href="/files/example.xlsx"> Download XLSX </a> - download turned off by default using className
+      <a class="do-not-track" href="/files/example.xlsx"> Download XLSX </a> -
+      download turned off by default using className
     </div>
   </div>
-  <Toast :message="toastMessage" v-model="isToastVisible" />
+  <Toast v-model="isToastVisible" :message="toastMessage" />
 </template>

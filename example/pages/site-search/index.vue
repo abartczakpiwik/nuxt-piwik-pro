@@ -9,7 +9,8 @@ const pageData = {
   methods: [
     {
       method: "trackSiteSearch",
-      usage: "$piwikPRO.SiteSearch.trackSiteSearch(keyword: string, category?: string, searchCount?: number, dimensions?: Object)",
+      usage:
+        "$piwikPRO.SiteSearch.trackSiteSearch(keyword: string, category?: string, searchCount?: number, dimensions?: Object)",
       desc: "Tracks search requests on a website.",
     },
   ],
@@ -38,10 +39,14 @@ const showToast = (message: string) => {
         </li>
       </ul>
       <h2>Sample usage</h2>
-      <p>To see tracking methods usage please turn developers tools in your browser and track results on the console.</p>
+      <p>
+        To see tracking methods usage please turn developers tools in your
+        browser and track results on the console.
+      </p>
       <p>
         You can use methods from that collection in page props for example
-        <code class="lang-ts">onMounted</code> (methods are invoked when the page starts), as on example below on the button click using
+        <code class="lang-ts">onMounted</code> (methods are invoked when the
+        page starts), as on example below on the button click using
         <code class="lang-ts">@click</code>event or text input.
       </p>
       <SearchAndList />
@@ -51,9 +56,12 @@ const showToast = (message: string) => {
           @click="
             () => {
               $piwikPRO.SiteSearch.trackSiteSearch('keyword', 'button', 4);
-              showToast('SiteSearch.trackSiteSearch(\'keyword\', \'button\', 4)');
+              showToast(
+                'SiteSearch.trackSiteSearch(\'keyword\', \'button\', 4)'
+              );
             }
-          ">
+          "
+        >
           SiteSearch.trackSiteSearch
         </button>
       </div>

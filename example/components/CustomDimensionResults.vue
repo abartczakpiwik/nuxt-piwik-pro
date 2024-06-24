@@ -30,15 +30,22 @@ onMounted(() => {
     <h2>Examples results</h2>
     <div>
       <p>
-        <code class="lang-ts">$piwikPRO.CustomDimensions.getCustomDimensionValue()</code> -
+        <code class="lang-ts"
+          >$piwikPRO.CustomDimensions.getCustomDimensionValue()</code
+        >
+        -
         {{ customDimValue }}
       </p>
     </div>
     <h2>Sample usage</h2>
-    <p>To see tracking methods usage please turn developers tools in your browser and track results on the console.</p>
+    <p>
+      To see tracking methods usage please turn developers tools in your browser
+      and track results on the console.
+    </p>
     <p>
       You can use methods from that collection in page props for example{' '}
-      <code class="lang-ts">onMounted</code> (methods are invoked when the page starts) or as on example below on the button click using
+      <code class="lang-ts">onMounted</code> (methods are invoked when the page
+      starts) or as on example below on the button click using
       <code class="lang-ts">@click</code> event.
     </p>
     <button
@@ -48,7 +55,8 @@ onMounted(() => {
           $piwikPRO.CustomDimensions.setCustomDimensionValue(12, 'value');
           showToast('CustomDimensions.setCustomDimensionValue(12, \'value\')');
         }
-      ">
+      "
+    >
       CustomDimensions.setCustomDimensionValue
     </button>
     <button
@@ -56,10 +64,13 @@ onMounted(() => {
       @click="
         async () => {
           $piwikPRO.CustomDimensions.getCustomDimensionValue(12);
-          customDimValue = (await $piwikPRO.CustomDimensions.getCustomDimensionValue(12)) ?? '';
+          customDimValue =
+            (await $piwikPRO.CustomDimensions.getCustomDimensionValue(12)) ??
+            '';
           showToast('CustomDimensions.getCustomDimensionValue(12)');
         }
-      ">
+      "
+    >
       CustomDimensions.getCustomDimensionValue
     </button>
     <button
@@ -69,9 +80,10 @@ onMounted(() => {
           $piwikPRO.CustomDimensions.deleteCustomDimension('12');
           showToast('CustomDimensions.deleteCustomDimension(\'12\')');
         }
-      ">
+      "
+    >
       CustomDimensions.deleteCustomDimension
     </button>
   </div>
-  <Toast :message="toastMessage" v-model="isToastVisible" />
+  <Toast v-model="isToastVisible" :message="toastMessage" />
 </template>
