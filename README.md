@@ -79,7 +79,7 @@ To use Piwik PRO services safety, you can import `usePiwikPro()` from `'@piwikpr
 // In any component or other part of application code
 import { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/composables";
 // callback can be sync or async function
-const userId = await handlePiwikPRO(({ PageViews, GoalConversions, UserManagement }) => {
+const userId = await usePiwikPro(({ PageViews, GoalConversions, UserManagement }) => {
   PageViews.trackPageView();
   GoalConversions.trackGoal(1, 100);
   return UserManagement.getUserId();
@@ -93,7 +93,7 @@ const userId = await handlePiwikPRO(({ PageViews, GoalConversions, UserManagemen
 > To make this composable globally available, create `.ts` file in `/composables` directory and export `usePiwikPro()` from `'@piwikpro/nuxt-piwik-pro/composables'`.
 >
 > ```ts
-> // ./composables/usePiwikPro.ts
+> // composables/usePiwikPro.ts
 > export { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/composables";
 > ```
 >
@@ -166,13 +166,10 @@ Please explore the `./example` directory to get to know how to use this package 
 #### Type Aliases
 
 - [Dimensions](#dimensions)
-- [HandlePiwikPROReturnedType](#handlepiwikproreturnedtype)
 - [InitOptions](#initoptions)
-- [NuxtAppWithPiwikPRO](#nuxtappwithpiwikpro)
 - [PaymentInformation](#paymentinformation)
 - [PiwikPROHandler](#piwikprohandler)
 - [PiwikPROServicesType](#piwikproservicestype)
-- [PluginArgs](#pluginargs)
 - [Product](#product)
 - [VisitorInfo](#visitorinfo)
 
@@ -191,18 +188,6 @@ Please explore the `./example` directory to get to know how to use this package 
 
 ___
 
-#### HandlePiwikPROReturnedType
-
-Ƭ **HandlePiwikPROReturnedType**\<`T`\>: `Promise`\<`T` \| `undefined`\>
-
-##### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | `unknown` |
-
-___
-
 #### InitOptions
 
 Ƭ **InitOptions**: `Object`
@@ -213,18 +198,6 @@ ___
 | :------ | :------ | :------ |
 | `dataLayerName?` | `string` | Defaults to 'dataLayer' |
 | `nonce?` | `string` | - |
-
-___
-
-#### NuxtAppWithPiwikPRO
-
-Ƭ **NuxtAppWithPiwikPRO**: `Object`
-
-##### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `$piwikPRO?` | [`PiwikPROServicesType`](#piwikproservicestype) |
 
 ___
 
@@ -277,12 +250,6 @@ ___
 
 ___
 
-#### PluginArgs
-
-Ƭ **PluginArgs**: \{ `containerId`: `string` ; `containerUrl`: `string`  } & [`InitOptions`](#initoptions)
-
-___
-
 #### Product
 
 Ƭ **Product**: `Object`
@@ -329,7 +296,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `this` | `void` |
-| `inlineOptions` | [`PluginArgs`](#pluginargs) |
+| `inlineOptions` | `PluginArgs` |
 | `nuxt` | `Nuxt` |
 
 ##### Returns

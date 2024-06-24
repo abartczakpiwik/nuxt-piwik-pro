@@ -75,7 +75,7 @@ To use Piwik PRO services safety, you can import `usePiwikPro()` from `'@piwikpr
 // In any component or other part of application code
 import { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/composables";
 // callback can be sync or async function
-const userId = await handlePiwikPRO(({ PageViews, GoalConversions, UserManagement }) => {
+const userId = await usePiwikPro(({ PageViews, GoalConversions, UserManagement }) => {
   PageViews.trackPageView();
   GoalConversions.trackGoal(1, 100);
   return UserManagement.getUserId();
@@ -89,7 +89,7 @@ const userId = await handlePiwikPRO(({ PageViews, GoalConversions, UserManagemen
 > To make this composable globally available, create `.ts` file in `/composables` directory and export `usePiwikPro()` from `'@piwikpro/nuxt-piwik-pro/composables'`.
 >
 > ```ts
-> // ./composables/usePiwikPro.ts
+> // composables/usePiwikPro.ts
 > export { usePiwikPro } from "@piwikpro/nuxt-piwik-pro/composables";
 > ```
 >
