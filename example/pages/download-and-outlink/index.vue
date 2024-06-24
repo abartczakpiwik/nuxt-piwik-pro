@@ -2,11 +2,13 @@
 const pageData = {
   title: "DownloadAndOutlink",
   heading: "Download and outlink Service",
-  description: "Manually tracks outlink or download event with provided values.",
+  description:
+    "Manually tracks outlink or download event with provided values.",
   methods: [
     {
       method: "trackLink",
-      usage: "$piwikPRO.DownloadAndOutlink.trackLink(url: string, linkType: string, customData?: object, callback?: (params: any) => void)",
+      usage:
+        "$piwikPRO.DownloadAndOutlink.trackLink(url: string, linkType: string, customData?: object, callback?: (params: any) => void)",
       desc: "Manually tracks outlink or download event with provided values.",
     },
     {
@@ -21,22 +23,26 @@ const pageData = {
     },
     {
       method: "setDownloadClasses",
-      usage: "$piwikPRO.DownloadAndOutlink.setDownloadClasses(classes: string[])",
+      usage:
+        "$piwikPRO.DownloadAndOutlink.setDownloadClasses(classes: string[])",
       desc: "Sets a list of class names that indicate whether a list is a download and not an outlink.",
     },
     {
       method: "setDownloadExtensions",
-      usage: "$piwikPRO.DownloadAndOutlink.setDownloadExtensions(extensions: string[])",
+      usage:
+        "$piwikPRO.DownloadAndOutlink.setDownloadExtensions(extensions: string[])",
       desc: "Overwrites the list of file extensions indicating that a link is a download.",
     },
     {
       method: "addDownloadExtensions",
-      usage: "$piwikPRO.DownloadAndOutlink.addDownloadExtensions(extensions: string[])",
+      usage:
+        "$piwikPRO.DownloadAndOutlink.addDownloadExtensions(extensions: string[])",
       desc: "Adds new extensions to the download extensions list.",
     },
     {
       method: "removeDownloadExtensions",
-      usage: "$piwikPRO.DownloadAndOutlink.removeDownloadExtensions(extensions: string[])",
+      usage:
+        "$piwikPRO.DownloadAndOutlink.removeDownloadExtensions(extensions: string[])",
       desc: "Removes extensions from the download extensions list.",
     },
     {

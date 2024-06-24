@@ -4,7 +4,8 @@ import { ref } from "vue";
 const pageData = {
   title: "PageViews",
   heading: "Send page views and virtual page views",
-  description: "Page views are tracked automatically but method can be invoked manually with specified parameters.",
+  description:
+    "Page views are tracked automatically but method can be invoked manually with specified parameters.",
   methods: [
     {
       method: "trackEvent",
@@ -37,26 +38,33 @@ const showToast = (message: string) => {
       </li>
     </ul>
     <h2>Sample usage</h2>
-    <p>To see tracking methods usage please turn developers tools in your browser and track results on the console.</p>
+    <p>
+      To see tracking methods usage please turn developers tools in your browser
+      and track results on the console.
+    </p>
     <p>
       You can use methods from that collection in page props for example
       <code class="lang-ts">onMounted()</code>
-      (methods are invoked when the page starts) or as on example below on the button click using <code class="lang-ts">@click</code>
+      (methods are invoked when the page starts) or as on example below on the
+      button click using <code class="lang-ts">@click</code>
       prop.
     </p>
     <button
       class="btn"
       @click="
         () => {
-          nuxtApp.$piwikPRO.PageViews.trackPageView('optional title from button');
+          nuxtApp.$piwikPRO.PageViews.trackPageView(
+            'optional title from button'
+          );
           showToast('PageViews.trackPageView(\'optional title from button\')');
         }
-      ">
+      "
+    >
       PageViews.trackPageView
     </button>
   </UContainer>
 
-  <Toast :message="toastMessage" v-model="isToastVisible" />
+  <Toast v-model="isToastVisible" :message="toastMessage" />
 </template>
 
 <style scoped></style>

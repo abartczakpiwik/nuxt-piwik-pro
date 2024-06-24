@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import Navigation from "~/components/Navigation.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div>

@@ -9,9 +9,12 @@ type Product = {
 
 const productList = ref<Product[]>([]);
 
-const debounce = (callback: (...args: any[]) => void, delay: number) => {
+const debounce = <T extends Array<unknown>>(
+  callback: (...args: T) => void,
+  delay: number
+) => {
   let timerId: ReturnType<typeof setTimeout>;
-  return (...args: any[]) => {
+  return (...args: T) => {
     clearTimeout(timerId);
     timerId = setTimeout(() => {
       callback(...args);
@@ -19,13 +22,13 @@ const debounce = (callback: (...args: any[]) => void, delay: number) => {
   };
 };
 
-const nuxtApp = useNuxtApp();
-
 const getIProductsBySearchString = (searchString: string) =>
   usePiwikPro(async ({ SiteSearch }) => {
     try {
       SiteSearch.trackSiteSearch(searchString);
-      const response = await fetch(`https://dummyjson.com/products/search?q=${searchString}`);
+      const response = await fetch(
+        `https://dummyjson.com/products/search?q=${searchString}`
+      );
       const { products }: { products: Product[] } = await response.json();
       productList.value = products;
       return products;
@@ -46,15 +49,19 @@ const debouncedSearch = debounce(getIProductsBySearchString, 500);
     <input
       type="text"
       placeholder="Type here"
+      class="input input-bordered w-full max-w-xs"
       @input="
         (event) => {
           // check if input value is a string over 2 characters length
-          if (event.target && (event.target as HTMLInputElement).value.length > 2) {
+          if (
+            event.target &&
+            (event.target as HTMLInputElement).value.length > 2
+          ) {
             debouncedSearch((event.target as HTMLInputElement).value);
           }
         }
       "
-      class="input input-bordered w-full max-w-xs" />
+    />
 
     <ul class="mt-4">
       <li v-for="product in productList" :key="product.id" class="p-2 border-b">

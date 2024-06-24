@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   },
   modules: [
     "@nuxt/ui",
+    "@nuxtjs/eslint-module",
     [
       "@piwikpro/nuxt-piwik-pro",
       {

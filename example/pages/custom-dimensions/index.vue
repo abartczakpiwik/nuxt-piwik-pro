@@ -2,21 +2,25 @@
 const pageData = {
   title: "CustomDimensions",
   heading: "Custom Dimensions",
-  description: "Collection of methods to manage custom dimensions through the Piwik PRO API.",
+  description:
+    "Collection of methods to manage custom dimensions through the Piwik PRO API.",
   methods: [
     {
       method: "setCustomDimensionValue",
-      usage: "$piwikPRO.CustomDimensions.setCustomDimensionValue(customDimensionId: string | number, customDimensionValue: string)",
+      usage:
+        "$piwikPRO.CustomDimensions.setCustomDimensionValue(customDimensionId: string | number, customDimensionValue: string)",
       desc: "Sets a custom dimension value to be used later.",
     },
     {
       method: "deleteCustomDimension",
-      usage: "$piwikPRO.CustomDimensions.deleteCustomDimension(customDimensionId: string)",
+      usage:
+        "$piwikPRO.CustomDimensions.deleteCustomDimension(customDimensionId: string)",
       desc: "Removes a custom dimension with the specified ID.",
     },
     {
       method: "getCustomDimensionValue",
-      usage: "$piwikPRO.CustomDimensions.getCustomDimensionValue(customDimensionId: string | number)",
+      usage:
+        "$piwikPRO.CustomDimensions.getCustomDimensionValue(customDimensionId: string | number)",
       desc: "Returns the value of a custom dimension with the specified ID.",
     },
   ],

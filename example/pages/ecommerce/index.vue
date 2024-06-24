@@ -120,10 +120,17 @@ const handleShowProductDetails = (product: Product) => {
                 <th>{{ product.sku }}</th>
                 <td>{{ product.name }}</td>
                 <td>
-                  <button class="btn btn-sm" @click="handleShowProductDetails(product)">details</button>
+                  <button
+                    class="btn btn-sm"
+                    @click="handleShowProductDetails(product)"
+                  >
+                    details
+                  </button>
                 </td>
                 <td>
-                  <button class="btn btn-sm" @click="handleAddToCart(product)">add to cart</button>
+                  <button class="btn btn-sm" @click="handleAddToCart(product)">
+                    add to cart
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -151,7 +158,12 @@ const handleShowProductDetails = (product: Product) => {
                 <td>{{ product.name }}</td>
                 <td>{{ product.quantity }}</td>
                 <td>
-                  <button class="btn btn-sm" @click="handleRemoveFromCart(product)">remove from cart</button>
+                  <button
+                    class="btn btn-sm"
+                    @click="handleRemoveFromCart(product)"
+                  >
+                    remove from cart
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -159,16 +171,18 @@ const handleShowProductDetails = (product: Product) => {
         </div>
         <h2 v-else>Cart is empty</h2>
         <div v-if="cart.length" class="card-actions justify-end">
-          <button class="btn btn-sm" @click="handleCheckout()">Make order</button>
+          <button class="btn btn-sm" @click="handleCheckout()">
+            Make order
+          </button>
         </div>
       </div>
     </div>
   </div>
 
-  <Modal name="product-details" v-model="isModalVisible">
+  <Modal v-model="isModalVisible" name="product-details">
     <ProductDetails v-if="chosenProduct" :product="chosenProduct" />
   </Modal>
-  <Toast :message="toastMessage" v-model="isToastVisible" />
+  <Toast v-model="isToastVisible" :message="toastMessage" />
 </template>
 
 <style scoped></style>

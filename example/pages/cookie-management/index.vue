@@ -5,7 +5,8 @@ import { useNuxtApp } from "nuxt/app";
 const pageData = {
   title: "CookieManagement",
   heading: "Cookie management",
-  description: "Collection of methods to manage cookies through the Piwik PRO API.",
+  description:
+    "Collection of methods to manage cookies through the Piwik PRO API.",
   methods: [
     {
       name: "enableCookies",
@@ -33,7 +34,8 @@ const pageData = {
     },
     {
       name: "setCookieNamePrefix",
-      usage: '$piwikPRO.CookieManagement.setCookieNamePrefix("_examplePrefix_");',
+      usage:
+        '$piwikPRO.CookieManagement.setCookieNamePrefix("_examplePrefix_");',
       desc: 'Sets the prefix for analytics tracking cookies. Default is "_pk_".',
       args: "_examplePrefix_",
     },
@@ -134,15 +136,20 @@ const showToast = (message: string) => {
             @click="
               () => {
                 // @ts-ignore-next-line
-                nuxtApp.$piwikPRO.CookieManagement[method.name as keyof typeof CookieManagement](method.args);
-                showToast(`CookieManagement.${method.name}(${method.args ?? ''})`);
+                nuxtApp.$piwikPRO.CookieManagement[
+                  method.name as keyof typeof nuxtApp.$piwikPRO.CookieManagement
+                ](method.args);
+                showToast(
+                  `CookieManagement.${method.name}(${method.args ?? ''})`
+                );
               }
-            ">
+            "
+          >
             Execute
           </button>
         </li>
       </ul>
     </article>
   </UContainer>
-  <Toast :message="toastMessage" v-model="isToastVisible" />
+  <Toast v-model="isToastVisible" :message="toastMessage" />
 </template>
