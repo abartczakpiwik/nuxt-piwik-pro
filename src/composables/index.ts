@@ -3,6 +3,7 @@ import { HandlePiwikPROReturnedType, NuxtAppWithPiwikPRO, PiwikPROHandler } from
 const handlePiwikPRO = async <T = unknown>(nuxtApp: NuxtAppWithPiwikPRO, handler: PiwikPROHandler<T>): HandlePiwikPROReturnedType<T> => {
   if (import.meta.client) {
     const { $piwikPRO } = nuxtApp;
+    // This check is needed in case of using `usePiwikPro` without injecting the module itself into Nuxt application in nuxt.config.ts
     if ($piwikPRO) {
       return await handler($piwikPRO);
     }
