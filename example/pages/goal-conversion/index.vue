@@ -28,6 +28,9 @@ const showToast = (message: string) => {
 </script>
 
 <template>
+  <Head>
+    <Title>{{ pageData.title }}</Title>
+  </Head>
   <UContainer class="prose p-8">
     <h1>{{ pageData.heading }}</h1>
     <p>{{ pageData.description }}</p>

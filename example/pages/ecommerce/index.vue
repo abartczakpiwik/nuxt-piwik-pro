@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import type { PaymentInformation, Product } from "@piwikpro/nuxt-piwik-pro";
+import { ref } from "vue";
+
 import { products } from "~/data/ecommerce";
 
 const toastMessage = ref("");
 const isToastVisible = ref(false);
+const pageData = {
+  title: "ECommerce",
+};
 
 const showToast = (message: string) => {
   toastMessage.value = message;
@@ -101,6 +105,9 @@ const handleShowProductDetails = (product: Product) => {
 </script>
 
 <template>
+  <Head>
+    <Title>{{ pageData.title }}</Title>
+  </Head>
   <div class="columns-2">
     <div class="card bg-base-100 shadow-xl inventory">
       <div class="card-body">

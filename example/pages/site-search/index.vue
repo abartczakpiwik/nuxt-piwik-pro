@@ -27,6 +27,9 @@ const showToast = (message: string) => {
 </script>
 
 <template>
+  <Head>
+    <Title>{{ pageData.title }}</Title>
+  </Head>
   <UContainer class="prose p-8">
     <article>
       <ServicesUsageExample />

@@ -4,6 +4,9 @@ import { onMounted, ref } from "vue";
 const userId = ref("");
 const visitorId = ref("");
 const visitorInfo = ref({});
+const pageData = {
+  title: "UserManagement",
+};
 
 const callAsyncMethods = () =>
   usePiwikPro(async ({ UserManagement }) => {
@@ -23,6 +26,9 @@ onMounted(() => {
 </script>
 
 <template>
+  <Head>
+    <Title>{{ pageData.title }}</Title>
+  </Head>
   <UContainer class="prose p-8">
     <h1>User Management</h1>
     <article>
