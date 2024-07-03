@@ -54,7 +54,7 @@ If you want your nonce to be passed to the script, pass it as the third argument
 
 Piwik PRO container will be initialized under the hood by `@piwikpro/nuxt-piwik-pro` module itself. Module also inject client-only plugin to Nuxt application instance which allow you to use all Piwik PRO services globally as a part of Nuxt context returned from `useNuxtApp()` composable as a `$piwikPRO`.
 
-###### Remember that Piwik PRO is a client-only library. This means you won't have access to any of its services on the server side.
+##### Remember that Piwik PRO is a client-only library. This means you won't have access to any of its services on the server side.
 
 ```ts
 // In any component or other part of application code
@@ -83,7 +83,7 @@ const userId = await usePiwikPro(
 );
 ```
 
-###### export `usePiwikPro()` as a Nuxt composable
+##### export `usePiwikPro()` as a Nuxt composable
 
 To make this composable globally available, create `.ts` file in `/composables` directory and export `usePiwikPro()` from `'@piwikpro/nuxt-piwik-pro/composables'`.
 
